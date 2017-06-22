@@ -17,7 +17,7 @@
 
 一种距离测度：[EMD (Earth Mover's Distance)](https://en.wikipedia.org/wiki/Earth_mover's_distance)
 
-EMD是两个离散的概率分布之间的距离，每个概率分布的具体取值是用多个向量来表示的。每个概率分布叫做一个signature，包含两部分，一部分是多个向量，另一部分是各个向量的权重（对于一个signature，总权重等于1）。Assume that signature P has m clusters with P={(p<sub>1</sub>,w<sub>p1</sub>),(p<sub>2</sub>,w<sub>p2</sub>),...,(p<sub>m</sub>,w<sub>pm</sub>)}。不同的p就是多个向量，不同的w就是各个向量的权重。
+EMD是两个离散的概率分布之间的距离，每个概率分布的具体取值是用多个向量来表示的。每个概率分布叫做一个signature，包含两部分，一部分是多个向量，另一部分是各个向量的权重（对于一个signature，总权重等于1）。Assume that signature P has m clusters with P={(p<sub>1</sub>,w<sub>p1</sub>),(p<sub>2</sub>,w<sub>p2</sub>),...,(p<sub>m</sub>,w<sub>pm</sub>)}。不同的p就是多个向量，不同的w就是各个向量的权重。下面是wikipedia中的具体介绍：
 
 ![The definition of EMD](images/emd.png)
 
