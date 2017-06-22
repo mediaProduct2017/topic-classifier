@@ -17,7 +17,7 @@
 
 一种距离测度：[EMD (Earth Mover's Distance)](https://en.wikipedia.org/wiki/Earth_mover's_distance)
 
-EMD是两个离散的概率分布之间的距离，每个概率分布的具体取值是用多个向量来表示的。每个概率分布叫做一个signature，包含两部分，一部分是多个向量，另一部分是各个向量的权重（对于一个signature，总权重等于1）。Assume that signature P has m clusters with P={(p<sub>1</sub>,w<sub>p1</sub>),(p<sub>2</sub>,w<sub>p2</sub>),...,(p<sub>m</sub>,w<sub>pm</sub>)}。不同的p就是多个向量，不同的w就是各个向量的权重。
+EMD是两个离散的概率分布之间的距离，每个概率分布的具体取值是用多个向量来表示的。每个概率分布叫做一个signature，包含两部分，一部分是多个向量，另一部分是各个向量的权重（对于一个signature，总权重等于1）。Assume that signature P has m clusters with P={(p<sub>1</sub>,w<sub>p1</sub>),(p<sub>2</sub>,w<sub>p2</sub>),...,(p<sub>m</sub>,w<sub>pm</sub>)}。不同的p就是多个向量，不同的w就是各个向量的权重。下面是wikipedia中的具体介绍：
 
 ![The definition of EMD](images/emd.png)
 
@@ -31,7 +31,7 @@ EMD是两个离散的概率分布之间的距离，每个概率分布的具体�
 
 EMD的具体使用场景：[Word Mover's Distance (WMD)](http://proceedings.mlr.press/v37/kusnerb15.pdf)
 
-EMD用于大数据分析的话，必须关注其时间复杂度，EMD的时间复杂度很差，为O(p^3 log(p))，用于文本分析的话，p是文本中所有word的数目。因此，要实现快速分析，p不宜太大。
+EMD用于大数据分析的话，必须关注其时间复杂度，EMD的时间复杂度很差，为O(n^3 log(n))，用于文本分析的话，n是文本中所有word的数目。因此，要实现快速分析，n不宜太大。
 
 WMD模型发表公布于International Conference on Machine Learning in 2015。EMD中的p对应word embeding（比如word2vec），EMD中的w对应各个word在相应的文本中出现的频数（normalization之后的频数），EMD中的D对应不同word embeding的euclidean distance。EMD中的两个概率分布，在WMD中表现为两个文档中的word embedding及其频数。在各自的文本中，各个word出现的频数之和用来做normalization的分母，使得一个文本中各个词的w之和为1。
 
