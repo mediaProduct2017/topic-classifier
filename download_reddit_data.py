@@ -12,11 +12,13 @@ import praw
 import sys
 import time
 
+import reddit_info
+
 from db_connect import db, cur
 
 chosen_subreddits = ['diving', 'Handball', 'corgi', 'datascience',
                      'MachineLearning']
-comments_threshold = 5000
+comments_threshold = 500  # 5000
 
 reddit = praw.Reddit(client_id=os.environ["PRAW_CLIENT_ID"],
                      client_secret=os.environ["PRAW_CLIENT_SECRET"],
