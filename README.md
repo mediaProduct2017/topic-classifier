@@ -1,5 +1,17 @@
 # topic-classifier
 
+## Topic classification的基本流程
+
+### 下载数据
+可以从web API下载，也可以通过web crawler下载。
+
+### 分析数据
+1. 从数据库中取出数据
+2. 文本数据预处理及数据清洗
+3. 从文本数据中计算词汇的频数
+4. 调用分类核心算法
+5. 评估算法的效果
+
 ## 分类器核心算法
 
 ### 本分类器的数据类型
@@ -37,3 +49,4 @@ WMD模型发表公布于International Conference on Machine Learning in 2015。E
 
 [word2vec](https://papers.nips.cc/paper/5021-distributed-representations-of-words-and-phrases-and-their-compositionality.pdf)由google团队发表于2013年，在[spacy](https://spacy.io/)这个python包中，有已经训练好的word2vec的word embedding，是根据the Common Crawl corpus数据通过神经网络模型来训练的。
 
+Quantified KNN: 分类时，如果是n选1，一般的KNN就可以了，但有的时候，test data可能不属于training data中的任何一类，这时候，就需要考虑测试数据与已知类别的具体距离，即使是这些类别中的最短距离，也要小于某个threshold才行，否则的话，就不能归到该类之中，而应该属于一个新的大类-其他。如果允许一个测试数据分到多个已知类别中，可以去检验其他距离与最短距离的差，如果小于某个threshold，该测试数据就拥有多个类别标签。如果一个测试数据可以分到所有已知类别中，可以把它分到一个新的大类-通用。

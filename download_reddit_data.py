@@ -18,7 +18,7 @@ from db_connect import db, cur
 
 chosen_subreddits = ['diving', 'Handball', 'corgi', 'datascience',
                      'MachineLearning']
-comments_threshold = 500  # 5000
+comments_threshold = 2000  # 500, 5000
 
 reddit = praw.Reddit(client_id=os.environ["PRAW_CLIENT_ID"],
                      client_secret=os.environ["PRAW_CLIENT_SECRET"],
@@ -102,8 +102,10 @@ for i in range(pull_df.shape[0]):
         cur.execute(submission_query, submission_tuple)
         comment_count = comment_count + len(comment_list)
         # The rest is for pretty tracking of progress
-        sys.stdout.write("\nComments processed: %d" % comment_count)
-        sys.stdout.flush()  # it will write everything in the buffer to the terminal
+        sys.stdout.write("\rComments processed: %d" % comment_count)
+        # \r is different from \n
+        sys.stdout.flush()
+        # important for the display, it will clear the previous output
         # Exit if you've downloaded more than comments_threshold comments
         if comment_count > comments_threshold:
             break
