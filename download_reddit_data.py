@@ -18,7 +18,7 @@ from db_connect import db, cur
 
 chosen_subreddits = ['diving', 'Handball', 'corgi', 'datascience',
                      'MachineLearning']
-comments_threshold = 2000  # 500, 5000
+comments_threshold = 500  # 500, 2000, 5000
 
 reddit = praw.Reddit(client_id=os.environ["PRAW_CLIENT_ID"],
                      client_secret=os.environ["PRAW_CLIENT_SECRET"],
